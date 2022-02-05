@@ -14,8 +14,8 @@ const Result: FC = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
 
-  const results = useTypedSelector<IResponse[]>(
-    ({ results }) => results.results
+  const wordList = useTypedSelector<IResponse[]>(
+    ({ results }) => results.wordList
   );
 
   const error = useTypedSelector(({ results }) => results.error);
@@ -37,11 +37,12 @@ const Result: FC = () => {
     >
       <Loader />
       <ErrorSnackbar />
-      {results.map(({ word, origin, phonetics, meanings }, i) => (
+      {wordList.map(({ word, origin, phonetics, meanings }, i) => (
         <Card key={i} sx={{ width: 550, marginTop: "30px" }}>
           <CardContent>
             <Loader />
             <ErrorSnackbar />
+
             <Typography
               gutterBottom
               variant="h5"
@@ -52,6 +53,7 @@ const Result: FC = () => {
               {phonetics.map(({ text, audio }, i) => (
                 <Box component="div" key={i}>
                   <Typography component="span">[ {text} ]</Typography>
+
                   <audio controls>
                     <source src={audio} type="audio/wav" />
                   </audio>
@@ -69,6 +71,7 @@ const Result: FC = () => {
                   <Typography key={i} gutterBottom variant="h5" component="div">
                     {partOfSpeech}
                   </Typography>
+
                   {definitions.map(
                     ({ definition, example, synonyms, antonyms }, i) => (
                       <Box component="div" key={i}>

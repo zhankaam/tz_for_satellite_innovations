@@ -12,9 +12,9 @@ function* searchWord({ payload }: IAction<TYPES>): SagaIterator {
   try {
     yield put(setIsFetching(true));
 
-    const result = yield call(API.searchWord, payload.word);
+    const { data } = yield call(API.searchWord, payload.word);
 
-    yield put(getResultsSuccess(result.data));
+    yield put(getResultsSuccess(data));
 
     yield put(setIsFetching(false));
   } catch (e) {

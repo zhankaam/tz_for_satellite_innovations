@@ -2,9 +2,9 @@ import IAction from "../../../helpers/i-action";
 import TYPES from "./action-types";
 import { IResponse } from "./api";
 
-export const getResultsSuccess = (results: IResponse[]): IAction<TYPES> => ({
+export const getResultsSuccess = (wordList: IResponse[]): IAction<TYPES> => ({
   type: TYPES.GET_RESULTS_SUCCESS,
-  payload: { results },
+  payload: { wordList },
 });
 
 export const searchWord = (word: string): IAction<TYPES> => ({

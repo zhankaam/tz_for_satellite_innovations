@@ -2,7 +2,7 @@ import IAction from "../../../helpers/i-action";
 import TYPES from "./action-types";
 
 const initialState = {
-  results: [],
+  wordList: [],
   isFetching: false,
   error: null,
 };
@@ -13,7 +13,7 @@ export default (
 ): InitialStateType => {
   switch (type) {
     case TYPES.GET_RESULTS_SUCCESS:
-      return { ...state, results: payload.results };
+      return { ...state, wordList: payload.wordList };
 
     case TYPES.SET_IS_FETCHING:
       return { ...state, isFetching: payload.isFetching };
