@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tz_for_satellite_innovations/static/css/main.e6c13ad2.css",
+    "main.js": "/tz_for_satellite_innovations/static/js/main.3ca08526.js",
+    "index.html": "/tz_for_satellite_innovations/index.html",
+    "main.e6c13ad2.css.map": "/tz_for_satellite_innovations/static/css/main.e6c13ad2.css.map",
+    "main.3ca08526.js.map": "/tz_for_satellite_innovations/static/js/main.3ca08526.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.3ca08526.js"
+  ]
+}
