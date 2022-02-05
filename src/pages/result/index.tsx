@@ -35,6 +35,8 @@ const Result: FC = () => {
       maxWidth="xl"
       sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
+      <Loader />
+      <ErrorSnackbar />
       {results.map(({ word, origin, phonetics, meanings }, i) => (
         <Card key={i} sx={{ width: 550, marginTop: "30px" }}>
           <CardContent>
