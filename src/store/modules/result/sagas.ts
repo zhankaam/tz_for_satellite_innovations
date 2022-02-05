@@ -10,13 +10,9 @@ import getErrorMessage from "../../../helpers/getErrorMessage";
 
 function* searchWord({ payload }: IAction<TYPES>): SagaIterator {
   try {
-    yield put(setIsFetching(true));
-
     const { data } = yield call(API.searchWord, payload.word);
 
     yield put(getResultsSuccess(data));
-
-    yield put(setIsFetching(false));
   } catch (e) {
     yield put(setError(getErrorMessage(e)));
   }

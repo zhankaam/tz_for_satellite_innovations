@@ -1,5 +1,13 @@
 import React, { FC, useEffect } from "react";
-import { Box, Card, CardContent, Typography, Container } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  Typography,
+  Container,
+  Button,
+} from "@mui/material";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTypedSelector } from "../../store";
 import { searchWord } from "../../store/modules/result/action-creator";
@@ -26,9 +34,11 @@ const Result: FC = () => {
     }
   }, [word]);
 
-  if (error) {
-    history(ROUTES.NOT_FOUND);
-  }
+  useEffect(() => {
+    if (error) {
+      history(ROUTES.NOT_FOUND);
+    }
+  }, [error]);
 
   return (
     <Container
@@ -54,9 +64,15 @@ const Result: FC = () => {
                 <Box component="div" key={i}>
                   <Typography component="span">[ {text} ]</Typography>
 
-                  <audio controls>
-                    <source src={audio} type="audio/wav" />
-                  </audio>
+                  {audio && (
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={() => new Audio(audio).play()}
+                    >
+                      <PlayArrowIcon />
+                    </Button>
+                  )}
                 </Box>
               ))}
             </Typography>
@@ -77,27 +93,29 @@ const Result: FC = () => {
                       <Box component="div" key={i}>
                         <Typography variant="body2" color="text.secondary">
                           Definition: {definition}
-                          <Typography component={"p"} variant={"body2"}>
-                            Example: {example}
-                          </Typography>
-                          <Typography component={"p"} variant={"body2"}>
-                            Synonyms:
-                            {synonyms.map((el, i) => (
-                              <Typography
-                                key={i}
-                                sx={{ wordBreak: "break-all" }}
-                                component={"span"}
-                                variant={"body2"}
-                              >
-                                {el},
-                              </Typography>
-                            ))}
-                          </Typography>
+                        </Typography>
+                        <Typography component={"p"} variant={"body2"}>
+                          Example: {example}
+                        </Typography>
+                        <Typography component={"p"} variant={"body2"}>
+                          Synonyms:
+                          {synonyms.map((el, i) => (
+                            <Typography
+                              key={i}
+                              sx={{ wordBreak: "break-all" }}
+                              component={"span"}
+                              variant={"body2"}
+                            >
+                              {el},
+                            </Typography>
+                          ))}
+                        </Typography>
+                        <Typography component={"p"} variant={"body2"}>
                           Antonyms:
                           {antonyms.map((el, i) => (
                             <Typography
                               key={i}
-                              component={"p"}
+                              component={"span"}
                               variant={"body2"}
                             >
                               {el}

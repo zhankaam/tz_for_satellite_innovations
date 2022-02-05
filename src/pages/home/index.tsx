@@ -14,7 +14,7 @@ const Home: FC = () => {
   };
 
   const onSearchClick = () => {
-    history(ROUTES.RESULT + keyword);
+    history(ROUTES.HOME + keyword);
   };
 
   return (

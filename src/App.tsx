@@ -8,8 +8,8 @@ import Result from "./pages/result";
 const App: FC = () => (
   <Routes>
     <Route path={ROUTES.HOME} element={<Home />} />
-    <Route path={ROUTES.RESULT + ":word"} element={<Result />} />
-    <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
+    <Route path={ROUTES.HOME + ":word"} element={<Result />} />
+    <Route path="*" element={<NotFound />} />
   </Routes>
 );
 

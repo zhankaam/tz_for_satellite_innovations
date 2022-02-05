@@ -13,7 +13,7 @@ export default (
 ): InitialStateType => {
   switch (type) {
     case TYPES.GET_RESULTS_SUCCESS:
-      return { ...state, wordList: payload.wordList };
+      return { ...state, wordList: payload.wordList, isFetching: false };
 
     case TYPES.SET_IS_FETCHING:
       return { ...state, isFetching: payload.isFetching };
@@ -21,8 +21,11 @@ export default (
     case TYPES.SET_ERROR:
       return { ...state, error: payload.message };
 
+    case TYPES.SEARCH_WORD:
+      return { ...state, isFetching: true };
+
     default:
-      return { ...state };
+      return state;
   }
 };
 

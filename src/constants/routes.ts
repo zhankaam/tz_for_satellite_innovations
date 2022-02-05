@@ -1,7 +1,6 @@
 enum ROUTES {
   HOME = "/",
-  RESULT = "/",
-  NOT_FOUND = "*",
+  NOT_FOUND = "/not-found",
 }
 
 export default ROUTES;
