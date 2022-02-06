@@ -8,7 +8,7 @@ import { store } from "./store/index";
 
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="tz_for_satellite_innovations">
       <App />
     </BrowserRouter>
   </Provider>,

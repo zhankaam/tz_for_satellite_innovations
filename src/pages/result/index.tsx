@@ -62,7 +62,7 @@ const Result: FC = () => {
               {word}
               {phonetics.map(({ text, audio }, i) => (
                 <Box component="div" key={i}>
-                  <Typography component="span">[ {text} ]</Typography>
+                  <Typography component="span">[ {text} ] </Typography>
 
                   {audio && (
                     <Button
